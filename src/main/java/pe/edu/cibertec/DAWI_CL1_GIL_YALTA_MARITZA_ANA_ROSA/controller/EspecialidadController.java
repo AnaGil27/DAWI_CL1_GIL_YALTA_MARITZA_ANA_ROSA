@@ -31,14 +31,14 @@ public class EspecialidadController {
 	}
 	
 	@PostMapping("/frmRegEspe")
-	public String registrarEspe(@ModelAttribute("estadoForm") Especialidad especialidad, Model model) {
+	public String registrarEspe(@ModelAttribute("espeForm") Especialidad especialidad, Model model) {
 		String mensaje = "Especialidad registrado correctamente";
 		try {
 			especialidadService.registrarEspecialidad(especialidad);
 		} catch (Exception e) {
 			mensaje = "Especialidad no registrado";
 		}
-		model.addAttribute("estadoForm",new Especialidad());
+		model.addAttribute("espeForm", new Especialidad());
 		model.addAttribute("visualizar", true);
 		model.addAttribute("respuesta", mensaje);
 		return "Especialidad/frmRegEspe";
